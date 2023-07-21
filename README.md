@@ -1,12 +1,10 @@
 set ns [new Simulator]
 
-
 set tracefile [open dos.tr w]
 $ns trace-all $tracefile
 
 set namfile [open dos.nam w]
 $ns namtrace-all $namfile
-
 
 proc finish {} {
 global ns tracefile namfile
@@ -41,7 +39,6 @@ $ns attach-agent $client2 $udp2
 
 set udp3 [new Agent/UDP]
 $ns attach-agent $attacker $udp3
-
 
 set null [new Agent/Null]
 $ns attach-agent $server2 $null
@@ -80,7 +77,6 @@ $ns at 0.5 "$cbr3 start"
 $ns at 1.5 "$cbr1 stop"
 $ns at 2.0 "$cbr2 stop"
 $ns at 2.5 "$cbr3 stop"
-
 
 $ns at 3.0 "finish"
 $ns run
