@@ -17,17 +17,11 @@ exec nam stable.nam &
 exit 0
 }
 
-
-
-
 set server1 [$ns node]
 set server2 [$ns node]
 set client1 [$ns node]
 set client2 [$ns node]
 set attacker [$ns node]
-
-
-
 
 #connecting
 
@@ -35,7 +29,6 @@ $ns duplex-link $client1 $server1 12Mb 100ms DropTail
 $ns duplex-link $client2 $server1 12Mb 100ms DropTail
 $ns duplex-link $attacker $server1 12Mb 100ms DropTail
 $ns duplex-link $server1 $server2 6Mb 200ms DropTail
-
 
 $ns queue-limit $server1 $server2 20
 
@@ -56,8 +49,6 @@ $ns attach-agent $server2 $null
 $ns connect $udp1 $null
 $ns connect $udp2 $null
 $ns connect $udp3 $null
-
-
 
 #Traffic
 set cbr1 [new Application/Traffic/CBR]
@@ -80,8 +71,6 @@ $cbr3 set packet_size_ 24000
 $cbr3 set rate_ 0.4mb
 $cbr3 set random_ false
 $cbr3 set interval_ 0.02
-
-
 
 #start trffic
 $ns at 0.1 "$cbr1 start"
